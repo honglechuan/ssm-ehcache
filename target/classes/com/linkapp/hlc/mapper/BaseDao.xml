@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linkapp.hlc.dao.BaseDao">
+
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"  >
+    <property name="timeToIdleSeconds" value="3600"/><!--1 hour-->
+    <property name="timeToLiveSeconds" value="3600"/><!--1 hour-->
+    <property name="maxEntriesLocalHeap" value="1000"/>
+    <property name="maxEntriesLocalDisk" value="10000000"/>
+    <property name="memoryStoreEvictionPolicy" value="LRU"/>
+  </cache>
+  	
+	<insert id="save" parameterType="com.linkapp.hlc.entity.User"  >
+		<![CDATA[   	  		 	
+   		 	INSERT INTO table_linkapp (id,`name`,`date`) 
+   		 	VALUES (#{id,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{date,jdbcType=VARCHAR})
+    	]]>
+	</insert>	
+	
+	<select id="select" resultType="java.lang.String">
+	<![CDATA[  
+		select * from  jweb_config
+	
+	]]>
+	</select>
+	
+	<select id="getConfig" resultMap="ConfigMap"  useCache="true"  >
+	<![CDATA[  
+		select * from  jweb_config 
+	
+	]]>
+	</select>
+	<resultMap type="com.linkapp.hlc.entity.Config" id="ConfigMap">
+		<id column="id" property="id" jdbcType="INTEGER" />
+   	 	<result column="name" property="name" jdbcType="VARCHAR" />
+    	<result column="value" property="value" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<insert id="saveConfig" parameterType="com.linkapp.hlc.entity.Config" useGeneratedKeys="true" keyProperty="id" >
+		<![CDATA[   	  		 	
+   		 	INSERT INTO jweb_config (`name`,`value`) 
+   		 	VALUES (#{name,jdbcType=VARCHAR},#{value,jdbcType=VARCHAR})
+    	]]>
+	</insert>	
+	
+	
+</mapper>
