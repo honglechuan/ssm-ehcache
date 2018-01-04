@@ -18,10 +18,11 @@ import java.net.URLConnection;
  */
 public class CacheTest {
 	public static void main(String[] args) {
-		String url="http://127.0.0.1:8080/com.linkapp.test/db/getConfig.do";
-		String url2="http://127.0.0.1:8080/com.linkapp.test/db/saveConfig.do";
+		String url="http://127.0.0.1:8080/com.linkapp.test/db/getConfig.do";//ehcache
+		String url2="http://127.0.0.1:8080/com.linkapp.test/db/saveConfig.do";//ehcache
+		String url3="http://127.0.0.1:8080/com.linkapp.test/db/getConfigs.do";//redis
 		try {
-			String res=sendPost(url,"");
+			String res=sendPost(url3,"");
 			//System.out.println(res);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

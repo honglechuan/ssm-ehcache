@@ -15,6 +15,7 @@ import com.linkapp.hlc.dao.BaseDao;
 import com.linkapp.hlc.entity.Config;
 import com.linkapp.hlc.entity.User;
 import com.linkapp.hlc.service.BaseService;
+import com.linkapp.hlc.util.JedisUtil;
 
 @Service("baseService")
 public class BaseServiceImpl implements BaseService {
@@ -89,5 +90,33 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 
+
+	@Override
+	public long getConfigs() {
+		// TODO Auto-generated method stub
+		
+		if(null==JedisUtil.getObject("list")){
+			long l1 = new Date().getTime();  
+			List<Config> con= baseDao.getConfig();
+			long l2 = new Date().getTime();  
+			JedisUtil.setObject("list", con);
+			System.out.println("++++++++++++total time use: " + (l2-l1));
+			return l2-l1;
+		}else{
+			long l1 = new Date().getTime();  
+			List<Config> con=(List<Config>) JedisUtil.getObject("list");
+			long l2 = new Date().getTime();
+			JedisUtil.rm();
+			System.out.println("++++++++++++total time use: " + (l2-l1));
+			
+			return l2-l1;
+		}
+		
+		
+		
+	
+	}
+
+	
 		
 }

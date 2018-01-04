@@ -183,6 +183,8 @@
 		    <version>2.9.0</version>
 		</dependency>
 		
+		<!--memcache  -->
+		  
 		<!--activeMQ  -->
           <dependency>
 		    <groupId>org.springframework</groupId>

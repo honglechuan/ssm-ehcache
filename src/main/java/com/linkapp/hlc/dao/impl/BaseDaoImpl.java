@@ -24,7 +24,7 @@ public class BaseDaoImpl implements BaseDao{
 
 	@Override
 	public void save(User user) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		sqlSessionTemplate.insert("com.linkapp.hlc.dao.BaseDao.save",user);
 	}
 																									//	
@@ -43,7 +43,7 @@ public class BaseDaoImpl implements BaseDao{
 	public List<Config> getConfig() {
 		
 		List<Config> count=sqlSessionTemplate.selectList("com.linkapp.hlc.dao.BaseDao.getConfig");
-		
+		sqlSessionTemplate.clearCache();
 		return count;
 	}
 

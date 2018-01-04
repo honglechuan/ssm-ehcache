@@ -226,6 +226,10 @@ public class JedisUtil {
     }
     
    
-    
+    public synchronized static void rm()
+    {
+			 getJedis().flushAll();
+		   
+    }
     
 }

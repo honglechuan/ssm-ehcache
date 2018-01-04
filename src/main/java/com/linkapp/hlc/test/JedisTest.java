@@ -21,7 +21,7 @@ public class JedisTest {
 
 	    	Jedis j=JedisUtil.getJedis();
 			
-			//JedisUtil.setObject("namee", "hlc反对法");
+			JedisUtil.setObject("li's", "hlc反对法");
 			
 			String res=JedisUtil.getObject("name2").toString();
 			System.out.println(res);

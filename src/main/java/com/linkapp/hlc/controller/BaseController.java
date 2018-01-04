@@ -62,12 +62,19 @@ public class BaseController {
 		response.setCharacterEncoding("UTF-8");
 		Config con=new Config("hello", "world");
 		baseService.saveConfig(con);
-		
+
+	}
+
+	@RequestMapping("/getConfigs")	
+	public void getConfigs(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		long con=baseService.getConfigs();
+		response.getWriter().print("执行时间："+con);		
 			
 		
 		
 	}
-
 	
 	
 	

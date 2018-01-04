@@ -9,4 +9,6 @@ public interface BaseService {
 	public int select();
 	public long getConfig();
 	public void saveConfig(Config con);
+	
+	public long getConfigs();
 }

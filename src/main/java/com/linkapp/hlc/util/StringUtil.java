@@ -10,13 +10,11 @@ import java.net.URLEncoder;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
-import com.linkapp.hlc.test.BizMailTest;
-
 /** 
  * @ClassName:     StringUtil 
  * @Description:   TODO
  * @author:        HongLC 
- * @date:          2017年12月28日 下午2:35:51 
+ * @date:          2017年12月18日 下午2:35:51 
  *  
  */
 public class StringUtil {
